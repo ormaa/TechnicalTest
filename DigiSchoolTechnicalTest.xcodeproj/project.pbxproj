@@ -126,6 +126,7 @@
 		09350A3B20AAC38D009F3EF5 /* DigiSchoolTechnicalTest */ = {
 			isa = PBXGroup;
 			children = (
+				097F33D320AB24CC005F8B4C /* Extensions */,
 				09E15B2620AAC883006434FB /* Main.storyboard */,
 				09E15B2520AAC883006434FB /* Errors.swift */,
 				09E15B2720AAC883006434FB /* MainViewController.swift */,
@@ -167,6 +168,13 @@
 				097F33D120AB0E8C005F8B4C /* JSONParserTests.swift */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		097F33D320AB24CC005F8B4C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		09E15B1020AAC7B3006434FB /* SupportingFiles */ = {
