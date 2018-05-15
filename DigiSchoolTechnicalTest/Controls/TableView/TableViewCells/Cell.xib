@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="pEf-2v-X1H" customClass="Cell_View" customModule="test3" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pEf-2v-X1H" id="bZb-Y6-f7z">
+                <rect key="frame" x="0.0" y="0.0" width="376" height="69.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sew-62-AQA" userLabel="Border" customClass="View" customModule="test3" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="376" height="70"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BO1-9p-Hhr">
+                        <rect key="frame" x="16" y="24.5" width="344" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Sew-62-AQA" secondAttribute="bottom" id="7q9-AC-evg"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BO1-9p-Hhr" secondAttribute="trailing" id="LLu-Jp-LMa"/>
+                    <constraint firstAttribute="trailing" secondItem="Sew-62-AQA" secondAttribute="trailing" id="Lpb-be-ed8"/>
+                    <constraint firstItem="BO1-9p-Hhr" firstAttribute="centerY" secondItem="bZb-Y6-f7z" secondAttribute="centerY" id="OmL-jo-jWb"/>
+                    <constraint firstItem="Sew-62-AQA" firstAttribute="leading" secondItem="bZb-Y6-f7z" secondAttribute="leading" id="SRL-IG-wAF"/>
+                    <constraint firstItem="Sew-62-AQA" firstAttribute="top" secondItem="bZb-Y6-f7z" secondAttribute="top" id="cLg-c3-vAh"/>
+                    <constraint firstItem="BO1-9p-Hhr" firstAttribute="leading" secondItem="bZb-Y6-f7z" secondAttribute="leadingMargin" id="w9g-fF-H6h"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                        <real key="value" value="2"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="title" destination="BO1-9p-Hhr" id="xtK-8X-Hws"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="52"/>
+        </tableViewCell>
+    </objects>
+</document>
