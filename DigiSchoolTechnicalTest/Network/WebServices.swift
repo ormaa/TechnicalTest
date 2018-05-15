@@ -22,6 +22,39 @@ class WebServices {
     // you need to add the movie name pattern at the end.
     var searchURLString = "https://www.omdbapi.com/?apikey=9d307ea&s="
 
+    
+    
+    
+    // Download an image from Internet
+    //
+    func downloadImage(url: String, completion:@escaping (_ error: String, _ data: Data?) -> Void) {
+        let request = URLRequest(url: URL(string: url)!)
+        let urlSession = URLSession.shared
+        let task = urlSession.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                if let error = error {
+                    completion(error.localizedDescription, nil)
+                }
+                return
+            }
+            completion("", data)
+        }
+        task.resume()
+    }
+    
+    
+    // call web service, allow to keep alive connection, even if ipad does nothing during long time
+    func getMoviesList(searchPattern: String, completion:@escaping (_ error: String, _ data: Data?) -> Void) {
+        
+        let fullUrlString = searchURLString + searchPattern
+        let urlString = fullUrlString.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+        
+        self.callWebService(urlString:  urlString!, completion: { (error, data) in
+            completion(error, data)
+        })
+    }
+    
+    
 
     // common func called to call webservices
     //
@@ -38,21 +71,16 @@ class WebServices {
         // request the data.
         let dataTask = session.dataTask(with: url!, completionHandler: { (data, response, error) -> Void in
             
-            if error != nil {
+            guard error == nil else {
                 Tools.log("Web service error : " + urlString)
                 Tools.log(error!.localizedDescription )
                 completion("error : " + error!.localizedDescription, nil)
+                return
             }
-            else {
-                // no http error
-//                var str: String?
-//                if data != nil {
-//                    str = String.init(data: data!, encoding: .utf8)
-//                }
-                // TODO : what should I do here if str could not be converted from data : I fire an error ? or I continue ???
-                // Decision is needed.
-                completion("", data)
-            }
+            
+            // no http error
+            completion("", data)
+            
         })
         
         // start task
@@ -63,16 +91,6 @@ class WebServices {
     
     
     
-    
-    // call web service, allow to keep alive connection, even if ipad does nothing during long time
-    func getMoviesList(searchPattern: String, completion:@escaping (_ error: String, _ data: Data?) -> Void) {
-        
-        let fullUrlString = searchURLString + searchPattern
-        let urlString = fullUrlString.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
-        
-        self.callWebService(urlString:  urlString!, completion: { (error, data) in
-            completion(error, data)
-        })
-    }
+
 
 }
