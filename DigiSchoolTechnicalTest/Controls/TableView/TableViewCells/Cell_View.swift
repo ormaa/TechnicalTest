@@ -13,13 +13,7 @@ class Cell_View: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
 
-    var viewModel = CellViewModel()
-    
     override func awakeFromNib() {
-        
     }
-    
-    func injectDependencies(item: MovieItem) {
-        self.viewModel.moviesItem = item
-    }
+
 }

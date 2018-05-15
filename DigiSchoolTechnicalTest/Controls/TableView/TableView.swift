@@ -68,12 +68,14 @@ class TableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         // Instantiate a cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! Cell_View
         
-        cell.title.text = mainViewModel?.moviesItems[indexPath.row].title
-
+        if mainViewModel != nil {
+            cell.title.text = mainViewModel?.moviesItems[indexPath.row].title
+        }
+        
         // Define the color used to highlight the cell.
-        // this avoid to have to manage the highlight, unhighlight !!!
+        // this avoid to have to manage the highlight, unhighlight event :o)
         let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor.green
+        backgroundView.backgroundColor = UIColor.green // this bright color broke my eyes :o)
         cell.selectedBackgroundView = backgroundView
         
         // create the alternate colors

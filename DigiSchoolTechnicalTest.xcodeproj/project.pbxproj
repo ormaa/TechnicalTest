@@ -30,7 +30,6 @@
 		09E15B3920AAC8F2006434FB /* DetailsBar_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E15B3520AAC8F1006434FB /* DetailsBar_View.swift */; };
 		09E15B3A20AAC8F2006434FB /* DetailsBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09E15B3620AAC8F1006434FB /* DetailsBar.xib */; };
 		09E15B3B20AAC8F2006434FB /* MainBar_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E15B3720AAC8F1006434FB /* MainBar_View.swift */; };
-		09E15B3F20AAC911006434FB /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E15B3D20AAC911006434FB /* CellViewModel.swift */; };
 		09E15B4020AAC911006434FB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E15B3E20AAC911006434FB /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +71,6 @@
 		09E15B3520AAC8F1006434FB /* DetailsBar_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsBar_View.swift; sourceTree = "<group>"; };
 		09E15B3620AAC8F1006434FB /* DetailsBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsBar.xib; sourceTree = "<group>"; };
 		09E15B3720AAC8F1006434FB /* MainBar_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBar_View.swift; sourceTree = "<group>"; };
-		09E15B3D20AAC911006434FB /* CellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
 		09E15B3E20AAC911006434FB /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,10 +114,10 @@
 		09350A3B20AAC38D009F3EF5 /* DigiSchoolTechnicalTest */ = {
 			isa = PBXGroup;
 			children = (
-				09E15B2820AAC883006434FB /* DetailsViewController.swift */,
-				09E15B2520AAC883006434FB /* ErrorsTexts.swift */,
 				09E15B2620AAC883006434FB /* Main.storyboard */,
+				09E15B2520AAC883006434FB /* ErrorsTexts.swift */,
 				09E15B2720AAC883006434FB /* MainViewController.swift */,
+				09E15B2820AAC883006434FB /* DetailsViewController.swift */,
 				09E15B3C20AAC911006434FB /* ViewModels */,
 				09E15B3320AAC8F1006434FB /* TopBars */,
 				09E15B3020AAC8DA006434FB /* JSON */,
@@ -163,8 +161,8 @@
 		09E15B1320AAC83F006434FB /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				09E15B1420AAC83F006434FB /* View.swift */,
 				09E15B1520AAC83F006434FB /* TableView */,
+				09E15B1420AAC83F006434FB /* View.swift */,
 				09E15B1A20AAC83F006434FB /* SearchBar.swift */,
 				09E15B1B20AAC83F006434FB /* Button.swift */,
 			);
@@ -227,7 +225,6 @@
 		09E15B3C20AAC911006434FB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				09E15B3D20AAC911006434FB /* CellViewModel.swift */,
 				09E15B3E20AAC911006434FB /* MainViewModel.swift */,
 			);
 			path = ViewModels;
@@ -348,7 +345,6 @@
 				09E15B3B20AAC8F2006434FB /* MainBar_View.swift in Sources */,
 				09E15B1C20AAC83F006434FB /* View.swift in Sources */,
 				09E15B2B20AAC883006434FB /* MainViewController.swift in Sources */,
-				09E15B3F20AAC911006434FB /* CellViewModel.swift in Sources */,
 				09E15B2020AAC83F006434FB /* SearchBar.swift in Sources */,
 				09E15B2420AAC84B006434FB /* Tools.swift in Sources */,
 				09E15B3920AAC8F2006434FB /* DetailsBar_View.swift in Sources */,
