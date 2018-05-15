@@ -119,7 +119,7 @@
 				09E15B2720AAC883006434FB /* MainViewController.swift */,
 				09E15B2820AAC883006434FB /* DetailsViewController.swift */,
 				09E15B3C20AAC911006434FB /* ViewModels */,
-				09E15B3320AAC8F1006434FB /* TopBars */,
+				09E15B3320AAC8F1006434FB /* NavigationBars */,
 				09E15B3020AAC8DA006434FB /* JSON */,
 				09E15B2D20AAC89A006434FB /* Network */,
 				09E15B2220AAC84B006434FB /* Tools */,
@@ -211,7 +211,7 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		09E15B3320AAC8F1006434FB /* TopBars */ = {
+		09E15B3320AAC8F1006434FB /* NavigationBars */ = {
 			isa = PBXGroup;
 			children = (
 				09E15B3420AAC8F1006434FB /* MainBar.xib */,
@@ -219,7 +219,7 @@
 				09E15B3620AAC8F1006434FB /* DetailsBar.xib */,
 				09E15B3520AAC8F1006434FB /* DetailsBar_View.swift */,
 			);
-			path = TopBars;
+			path = NavigationBars;
 			sourceTree = "<group>";
 		};
 		09E15B3C20AAC911006434FB /* ViewModels */ = {
