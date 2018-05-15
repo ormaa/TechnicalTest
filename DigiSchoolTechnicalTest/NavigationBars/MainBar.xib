@@ -46,11 +46,11 @@
                     </state>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boxoffice" translatesAutoresizingMaskIntoConstraints="NO" id="vCo-kx-nGY">
-                    <rect key="frame" x="4" y="0.0" width="39" height="44"/>
+                    <rect key="frame" x="4" y="1" width="42" height="42"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.034920876080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="72H-P1-nfw"/>
-                        <constraint firstAttribute="width" constant="39" id="JYB-NM-met"/>
+                        <constraint firstAttribute="height" constant="42" id="72H-P1-nfw"/>
+                        <constraint firstAttribute="width" constant="42" id="JYB-NM-met"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -62,11 +62,11 @@
                 <constraint firstItem="vCo-kx-nGY" firstAttribute="leading" secondItem="0fI-bn-wgC" secondAttribute="leading" constant="4" id="LUg-rg-1UZ"/>
                 <constraint firstItem="0fU-lm-DUd" firstAttribute="bottom" secondItem="0fI-bn-wgC" secondAttribute="bottom" id="LXF-H6-Dnf"/>
                 <constraint firstItem="hL9-WF-Mnr" firstAttribute="top" secondItem="0fI-bn-wgC" secondAttribute="top" constant="4" id="VCR-Gy-Vhm"/>
-                <constraint firstItem="Rj4-L2-1dt" firstAttribute="leading" secondItem="vCo-kx-nGY" secondAttribute="trailing" constant="7" id="VjW-R3-L0d"/>
+                <constraint firstItem="Rj4-L2-1dt" firstAttribute="leading" secondItem="vCo-kx-nGY" secondAttribute="trailing" constant="4" id="VjW-R3-L0d"/>
                 <constraint firstItem="9pC-n8-2hk" firstAttribute="leading" secondItem="Rj4-L2-1dt" secondAttribute="trailing" constant="17" id="Zxx-jN-KOV"/>
                 <constraint firstItem="Rj4-L2-1dt" firstAttribute="centerY" secondItem="0fI-bn-wgC" secondAttribute="centerY" id="ggk-eU-1oe"/>
                 <constraint firstItem="0fU-lm-DUd" firstAttribute="trailing" secondItem="0fI-bn-wgC" secondAttribute="trailing" id="hBp-WL-EMg"/>
-                <constraint firstItem="vCo-kx-nGY" firstAttribute="top" secondItem="0fI-bn-wgC" secondAttribute="top" id="tOK-yc-KFr"/>
+                <constraint firstItem="vCo-kx-nGY" firstAttribute="top" secondItem="0fI-bn-wgC" secondAttribute="top" constant="1" id="tOK-yc-KFr"/>
                 <constraint firstItem="9pC-n8-2hk" firstAttribute="top" secondItem="0fI-bn-wgC" secondAttribute="top" id="w2t-5L-HA8"/>
                 <constraint firstItem="0fU-lm-DUd" firstAttribute="top" secondItem="0fI-bn-wgC" secondAttribute="top" id="xln-r9-AII"/>
             </constraints>

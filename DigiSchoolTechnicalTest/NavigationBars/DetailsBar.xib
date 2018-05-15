@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Ypv-XF-fma" userLabel="Root" customClass="DetailsBar_View" customModule="test3" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="Ypv-XF-fma" userLabel="Root" customClass="DetailsBar_View" customModule="DigiSchoolTechnicalTest" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -20,7 +19,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="TKi-i4-Q9A">
-                            <rect key="frame" x="57" y="8" width="51" height="28"/>
+                            <rect key="frame" x="50" y="8" width="51" height="28"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="51" id="TRh-6X-Z4g"/>
                             </constraints>
@@ -32,26 +31,26 @@
                     <color key="backgroundColor" red="0.16486669400000001" green="0.6925599093" blue="0.2051498249" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="TKi-i4-Q9A" firstAttribute="centerY" secondItem="8en-X9-Vlq" secondAttribute="centerY" id="XtY-YI-cVd"/>
-                        <constraint firstItem="TKi-i4-Q9A" firstAttribute="leading" secondItem="8en-X9-Vlq" secondAttribute="leading" constant="57" id="eaN-hu-Iy8"/>
+                        <constraint firstItem="TKi-i4-Q9A" firstAttribute="leading" secondItem="8en-X9-Vlq" secondAttribute="leading" constant="50" id="eaN-hu-Iy8"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K6y-GK-bww">
-                    <rect key="frame" x="7" y="0.0" width="39" height="44"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boxoffice" translatesAutoresizingMaskIntoConstraints="NO" id="K6y-GK-bww">
+                    <rect key="frame" x="4" y="1" width="42" height="42"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.034920876080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="39" id="Vjh-hv-KXE"/>
-                        <constraint firstAttribute="height" constant="44" id="ump-s6-RxE"/>
+                        <constraint firstAttribute="width" constant="42" id="Vjh-hv-KXE"/>
+                        <constraint firstAttribute="height" constant="42" id="ump-s6-RxE"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="K6y-GK-bww" firstAttribute="top" secondItem="aMr-S3-rJ9" secondAttribute="top" id="4nm-rF-DuW"/>
-                <constraint firstItem="TKi-i4-Q9A" firstAttribute="leading" secondItem="K6y-GK-bww" secondAttribute="trailing" constant="11" id="5W5-Sa-MAt"/>
+                <constraint firstItem="K6y-GK-bww" firstAttribute="top" secondItem="aMr-S3-rJ9" secondAttribute="top" constant="1" id="4nm-rF-DuW"/>
+                <constraint firstItem="TKi-i4-Q9A" firstAttribute="leading" secondItem="K6y-GK-bww" secondAttribute="trailing" constant="4" id="5W5-Sa-MAt"/>
                 <constraint firstItem="8en-X9-Vlq" firstAttribute="trailing" secondItem="aMr-S3-rJ9" secondAttribute="trailing" id="Gpw-dZ-hBT"/>
                 <constraint firstItem="8en-X9-Vlq" firstAttribute="bottom" secondItem="aMr-S3-rJ9" secondAttribute="bottom" id="VBQ-sM-eKA"/>
                 <constraint firstItem="8en-X9-Vlq" firstAttribute="leading" secondItem="aMr-S3-rJ9" secondAttribute="leading" id="XJc-eV-nZv"/>
-                <constraint firstItem="K6y-GK-bww" firstAttribute="leading" secondItem="aMr-S3-rJ9" secondAttribute="leading" constant="7" id="ea2-vi-lEo"/>
+                <constraint firstItem="K6y-GK-bww" firstAttribute="leading" secondItem="aMr-S3-rJ9" secondAttribute="leading" constant="4" id="ea2-vi-lEo"/>
                 <constraint firstItem="8en-X9-Vlq" firstAttribute="top" secondItem="aMr-S3-rJ9" secondAttribute="top" id="oE6-Ns-Z9N"/>
                 <constraint firstItem="aMr-S3-rJ9" firstAttribute="top" secondItem="TKi-i4-Q9A" secondAttribute="bottom" constant="-36" id="tUt-E3-keY"/>
             </constraints>
@@ -62,4 +61,7 @@
             <point key="canvasLocation" x="33.5" y="54"/>
         </view>
     </objects>
+    <resources>
+        <image name="boxoffice" width="64" height="55"/>
+    </resources>
 </document>
