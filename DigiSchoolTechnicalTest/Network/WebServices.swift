@@ -20,7 +20,7 @@ class WebServices {
     //var url = "https://www.omdbapi.com/?i=tt3896198&apikey=9d307ea"
     
     // you need to add the movie name pattern at the end.
-    var searchURLString = "https://www.omdbapi.com/?apikey=9d307ea&s="
+    var searchURLString = "http://www.omdbapi.com/?apikey=9d307ea&s="
 
     
     
