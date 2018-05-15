@@ -40,10 +40,11 @@ class TableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     //
     func injectDependencies(mainViewModel: inout MainViewModel, tableViewRowClickelegate: TableViewDelegate) {
         self.mainViewModel = mainViewModel
-         self.tableViewRowClickelegate = tableViewRowClickelegate
+        self.tableViewRowClickelegate = tableViewRowClickelegate
     }
     
     // Reload tableview datas
+    //
     func refreshTableviewDatas() {
         DispatchQueue.main.async {
             self.reloadData()
@@ -55,11 +56,13 @@ class TableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     // Table view area
     
     // return number of rows
+    //
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mainViewModel == nil ? 0: mainViewModel!.moviesItems.count
     }
     
     // display row
+    //
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Instantiate a cell
@@ -86,6 +89,7 @@ class TableView: UITableView, UITableViewDataSource, UITableViewDelegate {
 
     
     // select row
+    //
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableViewRowClickelegate?.rowSelected(item: MovieItem())

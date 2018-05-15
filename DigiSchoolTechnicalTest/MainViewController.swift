@@ -30,13 +30,17 @@ class MainViewController: UIViewController, TableViewDelegate, SearchBarDelegate
 //        }
     }
     override func viewWillAppear(_ animated: Bool) {
+        
         // hide the activity indicator
+        
         activityIndicator.stopAnimating()
         
-        // init the tableview dependencies
+        // init the tableview dependencies. note that the viewmodel is passed by reference, in order to save memory
+        
         self.mainTableView.injectDependencies(mainViewModel: &self.mainViewModel, tableViewRowClickelegate: self)
 
         // Set a custom navigation bar
+        
         let topBar = MainBar_View.instanceFromNib(width: self.view.frame.width)
         topBar.setSearchDelegate(delegate: self)
         topBar.searchBar.text = mainViewModel.searchedText
