@@ -13,6 +13,7 @@ import UIKit
 
 protocol TableViewDelegate {
     func rowSelected(item: MovieItem)
+    func refresh()  // refresh already exist in another protocol, this is what is nice. one implementation, 2 way to call it :o)
 }
 
 
@@ -23,6 +24,15 @@ class TableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
     var tableViewRowClickelegate: TableViewDelegate? = nil
     
+    
+    lazy var refreshCtrl: UIRefreshControl = {
+        let refreshCtrl = UIRefreshControl()
+        refreshCtrl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        refreshCtrl.tintColor = UIColor.blue
+        
+        return refreshCtrl
+    }()
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -31,6 +41,8 @@ class TableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         delegate = self
         dataSource = self
         
+        // Add the refresh control : pull to refresh
+        self.addSubview(self.refreshCtrl)
     }
     
 
@@ -49,6 +61,14 @@ class TableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         DispatchQueue.main.async {
             self.reloadData()
         }
+    }
+    
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        
+        //refreshTableviewDatas()
+        self.tableViewRowClickelegate?.refresh()
+        refreshControl.endRefreshing()
     }
     
     
@@ -94,7 +114,9 @@ class TableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     //
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableViewRowClickelegate?.rowSelected(item: MovieItem())
+        if mainViewModel != nil && mainViewModel!.moviesItems.count > indexPath.row {
+            tableViewRowClickelegate?.rowSelected(item: mainViewModel!.moviesItems[indexPath.row])
+        }
     }
     
     
