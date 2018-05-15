@@ -19,7 +19,7 @@ class MainViewController: UIViewController, TableViewDelegate, SearchBarDelegate
     
     var mainViewModel = MainViewModel()
     
-    
+
     
     
     override func viewDidLoad() {
@@ -113,7 +113,11 @@ class MainViewController: UIViewController, TableViewDelegate, SearchBarDelegate
         // push a new viewController = detailsViewController
         if storyboard != nil {
             let vc: DetailsViewController = storyboard?.instantiateViewController(withIdentifier: "DetailsVC") as! DetailsViewController
-            vc.injectDependencies(item: item)
+            // Create the details Viewmodel
+            let vm = DetailsViewModel()
+            vm.moviesItem = item
+            vc.injectDependencies(viewModel: vm)
+
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
