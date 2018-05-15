@@ -67,7 +67,12 @@ class MainViewController: UIViewController, TableViewDelegate, SearchBarDelegate
     
     /// Delegates
     
-    // SearchBar_View : user clicked on Search button
+    // MainBar : user clicked on Refresh button
+    func refresh() {
+        searchText(text: mainViewModel.searchedText)
+    }
+    
+    // MainhBar_View : user clicked on Search button
     //
     func searchText(text: String) {
         
