@@ -13,17 +13,16 @@ import WebKit
 
 
 
-//var url = "http://www.omdbapi.com/?i=tt3896198&apikey=9d307ea"
-
-// need to add the search pattern at the end.
-var searchURLString = "http://www.omdbapi.com/?apikey=9d307ea&s="
 
 
 class WebServices {
     
+    //var url = "https://www.omdbapi.com/?i=tt3896198&apikey=9d307ea"
     
-    
-    
+    // you need to add the movie name pattern at the end.
+    var searchURLString = "https://www.omdbapi.com/?apikey=9d307ea&s="
+
+
     // common func called to call webservices
     //
     func callWebService(urlString: String, completion:@escaping (_ error: String, _ data: Data?) -> Void) {
