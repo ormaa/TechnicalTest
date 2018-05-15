@@ -1,0 +1,127 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c1680\c19835\c100000;}
+\paperw12240\paperh15840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 Technical test for DigiSchool, by Olivier ROBIN - 17 Mai 2018\
+
+\b0 \
+\
+
+\b Notes\
+
+\b0 \
+This version of the project is written in Swift 4.1 for IOS 11.0\
+without any external framework, in order to deliver something purely "Apple" style.\
+\
+Some improvement could be done by using Alamofire, to do web service call, rxSwift to bind the data to tableView, searchBar, and SwiftyJson to have elegant solution to parse JSON datas.\
+\
+\
+
+\b Design pattern\
+
+\b0 \
+I chose something like an MVVM pattern or similar.\
+To be short :\
+MVVM class is called by ViewController to get datas.\
+the MVVM class manage the webservice call to get datas ( or to send datas when needed... this is not the case here)\
+it manage the JSON conversion, and format the datas to be usable by ViewController.\
+\
+\
+\
+The technical test description document is simple, clear, and let developper to do some choice as there is not so much details.\
+\
+
+\b Feature identified ( random order ) :\
+
+\b0 Display a main page \
+display a list of movies.\
+be able to scroll the list of movies is larger than screen size\
+Click on a movie row to display details page.\
+Call a web service to get a list of movies.\
+filter the movies to display in the list, using something like a text field\
+refresh the movie list = refresh the web service call + display\
+display a topbar\
+\
+display a second page, with detail of a selected movie\
+display a top bar\
+allow to navigate to main page : Swipe from left to right\
+Display movie title\
+Display thumbnail of movie\
+display release date\
+display critics stars\
+display audience stars\
+display myreview stars\
+display synopsis\
+display casting\
+display similar movies\
+be able to scroll when render is larger than the screen size\
+\
+
+\b \
+Design
+\b0 \
+There is 2 pages ( 2 Screens ) : Main screen, and detail screen.\
+\
+
+\b main screen
+\b0 \
+\
+the scrollbar is under the top bar, which mean that the top bar need to stay fixed, when user scroll the result.\
+in this case, we cannot use the TableView Header to build a custom top bar\
+then, no UITableViewController.\
+\
+
+\b Detail screen\
+
+\b0 the top bar is different than the main screen.\
+there is no back button.\
+in this case, a gesture could be implemented in order to go back to main page ( right Swipe )\
+\
+
+\b Navigation\
+
+\b0 in order to be most as possible Apple compliant, we should use a Navigation controller.\
+this will allow us to push a controller, and pop it !\
+\
+
+\b Navigation BAR\
+
+\b0 a Navigation controller has a Navigation bar which is 44 pixel height.\
+\
+we can easily use a personal control to define the Navigation bar, using a XIB + class to place elements, and add the needed code.\
+if the bar is more than 44 pixel height : IOS 11 do not accept anymore to resize the bar Height.\
+\
+\
+
+\b The project\
+
+\b0 Each group is named accordingly to what it does.\
+There is one Storyboard, containing one navigationController, and 2 ViewController.\
+the 2 ViewController are :\
+MainViewController, which is the main screen\
+DetailViewController, which is the detail screen\
+\
+There is a custom TopBar overriding the original UINavigationBar located in the navigationController.\
+MainBar contains the logo, some text, the UISearchBar, and refresh button.\
+DetailBar contain the logo, and text.\
+\
+The advantage of the navigationcontroller is we can easily push, pop controller, without thinking about the sequence. \
+We could add as many screen we want, without any difficulty in managing the workflow.\
+\
+The UITableView is overriden by a TableView class, allowing to get all needed code to manage the rows, the click in a row, the colors of each row.\
+Each row is defined using a template : XIB + Class, allowing to be more confortable in designing the row template.\
+\
+The MVVM class get the datas from web service, and do the JSON parsing, report datas converted or error message.\
+\
+JSON datas are parsed using Codable and decode. this is so fun that I don't need for this Test to use something like SwiftyJSON.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 Row Click :\cf0 \
+TableView row click call a delegate because it is not the responsibility of TableView to change of screen.\
+\
+\
+\
+}
