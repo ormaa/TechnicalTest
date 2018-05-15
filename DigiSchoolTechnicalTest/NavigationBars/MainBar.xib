@@ -34,14 +34,14 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hL9-WF-Mnr">
-                    <rect key="frame" x="333" y="4" width="30" height="30"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hL9-WF-Mnr">
+                    <rect key="frame" x="330" y="1" width="42" height="42"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="Qkp-LC-pHz"/>
-                        <constraint firstAttribute="height" constant="30" id="k97-Yf-VXC"/>
+                        <constraint firstAttribute="width" constant="42" id="Qkp-LC-pHz"/>
+                        <constraint firstAttribute="height" constant="42" id="k97-Yf-VXC"/>
                     </constraints>
-                    <state key="normal" title="O">
+                    <state key="normal" title="O" image="refresh">
                         <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
@@ -56,12 +56,12 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="hL9-WF-Mnr" firstAttribute="leading" secondItem="9pC-n8-2hk" secondAttribute="trailing" constant="10" id="0s9-xb-Zjo"/>
+                <constraint firstItem="hL9-WF-Mnr" firstAttribute="leading" secondItem="9pC-n8-2hk" secondAttribute="trailing" constant="7" id="0s9-xb-Zjo"/>
                 <constraint firstItem="0fU-lm-DUd" firstAttribute="leading" secondItem="0fI-bn-wgC" secondAttribute="leading" id="1R3-Xj-aTc"/>
-                <constraint firstItem="0fI-bn-wgC" firstAttribute="trailing" secondItem="hL9-WF-Mnr" secondAttribute="trailing" constant="12" id="4lI-k6-oU0"/>
+                <constraint firstItem="0fI-bn-wgC" firstAttribute="trailing" secondItem="hL9-WF-Mnr" secondAttribute="trailing" constant="3" id="4lI-k6-oU0"/>
                 <constraint firstItem="vCo-kx-nGY" firstAttribute="leading" secondItem="0fI-bn-wgC" secondAttribute="leading" constant="4" id="LUg-rg-1UZ"/>
                 <constraint firstItem="0fU-lm-DUd" firstAttribute="bottom" secondItem="0fI-bn-wgC" secondAttribute="bottom" id="LXF-H6-Dnf"/>
-                <constraint firstItem="hL9-WF-Mnr" firstAttribute="top" secondItem="0fI-bn-wgC" secondAttribute="top" constant="4" id="VCR-Gy-Vhm"/>
+                <constraint firstItem="hL9-WF-Mnr" firstAttribute="top" secondItem="0fI-bn-wgC" secondAttribute="top" constant="1" id="VCR-Gy-Vhm"/>
                 <constraint firstItem="Rj4-L2-1dt" firstAttribute="leading" secondItem="vCo-kx-nGY" secondAttribute="trailing" constant="4" id="VjW-R3-L0d"/>
                 <constraint firstItem="9pC-n8-2hk" firstAttribute="leading" secondItem="Rj4-L2-1dt" secondAttribute="trailing" constant="17" id="Zxx-jN-KOV"/>
                 <constraint firstItem="Rj4-L2-1dt" firstAttribute="centerY" secondItem="0fI-bn-wgC" secondAttribute="centerY" id="ggk-eU-1oe"/>
@@ -82,5 +82,6 @@
     </objects>
     <resources>
         <image name="boxoffice" width="64" height="55"/>
+        <image name="refresh" width="64" height="64"/>
     </resources>
 </document>
