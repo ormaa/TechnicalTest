@@ -80,12 +80,9 @@
 		09350A3B20AAC38D009F3EF5 /* DigiSchoolTechnicalTest */ = {
 			isa = PBXGroup;
 			children = (
-				09350A3C20AAC38D009F3EF5 /* AppDelegate.swift */,
+				09E15B1020AAC7B3006434FB /* SupportingFiles */,
 				09350A3E20AAC38D009F3EF5 /* ViewController.swift */,
 				09350A4020AAC38D009F3EF5 /* Main.storyboard */,
-				09350A4320AAC38E009F3EF5 /* Assets.xcassets */,
-				09350A4520AAC38E009F3EF5 /* LaunchScreen.storyboard */,
-				09350A4820AAC38E009F3EF5 /* Info.plist */,
 			);
 			path = DigiSchoolTechnicalTest;
 			sourceTree = "<group>";
@@ -97,6 +94,17 @@
 				09350A5320AAC38E009F3EF5 /* Info.plist */,
 			);
 			path = DigiSchoolTechnicalTestTests;
+			sourceTree = "<group>";
+		};
+		09E15B1020AAC7B3006434FB /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				09350A4820AAC38E009F3EF5 /* Info.plist */,
+				09350A4520AAC38E009F3EF5 /* LaunchScreen.storyboard */,
+				09350A4320AAC38E009F3EF5 /* Assets.xcassets */,
+				09350A3C20AAC38D009F3EF5 /* AppDelegate.swift */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,7 +372,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP9H83DB6M;
-				INFOPLIST_FILE = DigiSchoolTechnicalTest/Info.plist;
+				INFOPLIST_FILE = DigiSchoolTechnicalTest/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -383,7 +391,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP9H83DB6M;
-				INFOPLIST_FILE = DigiSchoolTechnicalTest/Info.plist;
+				INFOPLIST_FILE = DigiSchoolTechnicalTest/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
