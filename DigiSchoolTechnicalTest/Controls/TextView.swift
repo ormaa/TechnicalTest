@@ -10,18 +10,8 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class TextView: UITextView{
-    
-    // place holder is nice to display what to enter in the textfield, when there is no text inside it.
-    @IBInspectable var placeHolder: String = "" {
-        didSet {
-            // for comparison, let's add a UITextField with a placeholder
-            let nameTextfield: UITextField? = UITextField(frame:
-                CGRect(x: 20, y: 20, width: frame.size.width - 40, height: 40))
-            nameTextfield?.placeholder = placeHolder
-            self.addSubview(nameTextfield!)
-        }
-    }
+class TextView: UITextView {
+
     
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {

@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 class DetailsViewController: UIViewController, UITextViewDelegate{
-    
+
+    @IBOutlet var rootView: UIView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var poster: ImageView!
     @IBOutlet weak var releaseDate: UILabel!
@@ -24,6 +25,10 @@ class DetailsViewController: UIViewController, UITextViewDelegate{
     @IBOutlet weak var similarMoviesText: TextView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var enterYourREviewPlaceHolder: UILabel!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     
     var detailsViewModel: DetailsViewModel? = nil
     
@@ -49,27 +54,99 @@ class DetailsViewController: UIViewController, UITextViewDelegate{
 
         displayDetails()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: .UIKeyboardWillHide, object: nil)
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow , object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide , object: nil)
     }
 
+    @objc func keyboardWillAppear(notification: NSNotification?) {
+        
+        guard let keyboardFrame = notification?.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+        
+        // Compute y position of the textView, from top of screen
+        var completed = false
+        var yTotal = CGFloat( myReviewText.frame.size.height )
+        var v1: UIView? = myReviewText as UIView
+        repeat {
+            if v1 != nil  {
+                print(v1!.frame)
+                yTotal += v1!.frame.origin.y
+                v1 = v1!.superview
+            }
+            completed = v1 == nil
+        }
+        while !completed
+        
+        print("yTotal " + String(describing: yTotal))
+        print(view.contentScaleFactor)
+        
+        // Compute keyboard height
+        let keyboardHeight: CGFloat
+        if #available(iOS 11.0, *) {
+            keyboardHeight = keyboardFrame.cgRectValue.height - self.view.safeAreaInsets.bottom
+        } else {
+            keyboardHeight = keyboardFrame.cgRectValue.height
+        }
+        print("Keybord height : " + String(describing: keyboardHeight))
+        
+//        let posTextView = view!.convert(scrollView!.frame, to: nil).origin
+//        let posScrollView = view!.convert(view!.frame, to: nil).origin
+//        let posRootView = view!.convert(view!.superview!.frame.origin, to: nil)
+        
+        //tableViewBottomLayoutConstraint.constant = keyboardHeight
+        
+        let screenSize: CGRect = UIScreen.main.bounds
+        print(screenSize)
+        
+        let delta = screenSize.height - yTotal
+        scrollView.contentOffset = CGPoint(x: 0, y: keyboardHeight - delta ) //(keyboardHeight - posTextView.y - posScrollView.y ) + posRootView.y )
+        //rootView.frame.origin = CGPoint(x: 0, y: yTotal - keyboardHeight )
+    }
+    
+    @objc func keyboardWillDisappear(notification: NSNotification?) {
+        scrollView.contentOffset = CGPoint(x: 0, y: 0)
+        //rootView.frame.origin = CGPoint(x: 0, y: 0 )
+    }
+    
+    
     func moveViewDelta(deltaY : CGFloat) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view!.frame = self.view!.frame.offsetBy(dx: 0, dy: -deltaY)
-        })
+        
+//        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+//            let keyboardRectangle = keyboardFrame.cgRectValue
+//            let keyboardHeight = keyboardRectangle.height
+//        }
+        
+//        UIView.animate(withDuration: 0.3, animations: {
+//            self.view!.frame = self.view!.frame.offsetBy(dx: 0, dy: -deltaY)
+//        })
     }
 
 
     /// textView
-    func textViewDidEndEditing(_ textView: UITextView) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         print("begin editing")
-        moveViewDelta(deltaY: 100)
+        moveViewDelta(deltaY: 70)
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("end editing")
+        moveViewDelta(deltaY: -70)
     }
     
-//    func textViewDidChange(_ textView: UITextView) {
-//    }
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.count > 0 {
+            enterYourREviewPlaceHolder.isHidden = true
+        }
+        else {
+            enterYourREviewPlaceHolder.isHidden = false
+        }
+    }
     
     // character entered in textView
     //
@@ -77,7 +154,7 @@ class DetailsViewController: UIViewController, UITextViewDelegate{
         if(text == "\n") {
             // hide the keyboard
             textView.resignFirstResponder()
-            moveViewDelta(deltaY: 0)
+            //moveViewDelta(deltaY: 0)
             return false
         }
         return true
