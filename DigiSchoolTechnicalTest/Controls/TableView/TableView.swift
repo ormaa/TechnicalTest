@@ -95,7 +95,7 @@ class TableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         // Define the color used to highlight the cell.
         // this avoid to have to manage the highlight, unhighlight event :o)
         let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor.green // this bright color broke my eyes :o)
+        backgroundView.backgroundColor = UIColor(red: 0.8098, green: 0.99, blue: 0.7157, alpha: 1.0)
         cell.selectedBackgroundView = backgroundView
         
         // create the alternate colors

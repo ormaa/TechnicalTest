@@ -46,14 +46,6 @@
                     <constraint firstItem="Sew-62-AQA" firstAttribute="top" secondItem="bZb-Y6-f7z" secondAttribute="top" id="cLg-c3-vAh"/>
                     <constraint firstItem="BO1-9p-Hhr" firstAttribute="leading" secondItem="bZb-Y6-f7z" secondAttribute="leadingMargin" id="w9g-fF-H6h"/>
                 </constraints>
-                <userDefinedRuntimeAttributes>
-                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                        <real key="value" value="2"/>
-                    </userDefinedRuntimeAttribute>
-                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </userDefinedRuntimeAttribute>
-                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <connections>
                 <outlet property="title" destination="BO1-9p-Hhr" id="xtK-8X-Hws"/>
