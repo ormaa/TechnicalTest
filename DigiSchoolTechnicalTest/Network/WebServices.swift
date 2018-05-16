@@ -21,6 +21,7 @@ class WebServices {
     
     // you need to add the movie name pattern at the end.
     var searchURLString = "http://www.omdbapi.com/?apikey=9d307ea&s="
+    var detailsURLString = "http://www.omdbapi.com/?apikey=9d307ea&i="
 
     
     
@@ -54,6 +55,16 @@ class WebServices {
         })
     }
     
+    // call web service, allow to keep alive connection, even if ipad does nothing during long time
+    func getMovieDetails(imdbID: String, completion:@escaping (_ error: String, _ data: Data?) -> Void) {
+        
+        let fullUrlString = detailsURLString + imdbID
+        let urlString = fullUrlString.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+        
+        self.callWebService(urlString:  urlString!, completion: { (error, data) in
+            completion(error, data)
+        })
+    }
     
 
     // common func called to call webservices

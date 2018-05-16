@@ -113,10 +113,7 @@ class MainViewController: UIViewController, TableViewDelegate, SearchBarDelegate
         // push a new viewController = detailsViewController
         if storyboard != nil {
             let vc: DetailsViewController = storyboard?.instantiateViewController(withIdentifier: "DetailsVC") as! DetailsViewController
-            // Create the details Viewmodel
-            let vm = DetailsViewModel()
-            vm.moviesItem = item
-            vc.injectDependencies(viewModel: vm)
+            vc.imdbID = item.id
 
             self.navigationController?.pushViewController(vc, animated: true)
         }

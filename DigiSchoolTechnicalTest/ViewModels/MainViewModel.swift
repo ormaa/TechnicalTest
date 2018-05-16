@@ -26,34 +26,31 @@ class MainViewModel {
 
         // Get movie list using web service
         WebServices().getMoviesList(searchPattern: filterName, completion: { (error, data) in
-        
-            if error != "" {
+            guard error == "" else {
                 // web service returned an error
                 completion( Errors.LoadingError + error + " '" )
+                return
+            }
+            // json received, no error reported
+            guard data != nil  else {
+                return
+            }
+
+            // check json object can be parsed 
+            let jsonError = MovieItemParser().getJSONError(datas: data!)
+            guard jsonError == "" else {
+                completion( Errors.JSONError + jsonError + " '" )
+                return
+            }
+            // Parse json object, to get list of movies
+            let (items, parseError) = MovieItemParser().jsonDecodeMovieList(datas: data!)
+            if parseError == "" {
+                self.moviesItems = items
+                
+                completion("")
             }
             else {
-                // json received
-                
-                if data != nil {
-                    
-                    // Vérify if web site has returned a json object containing an error message
-                    let jsonError = MovieItemParser().getJSONError(datas: data!)
-                    if jsonError != "" {
-                        completion( Errors.JSONError + jsonError + " '" )
-                    }
-                    else {
-                        // Parse json object, to get list of movies
-                        let (items, parseError) = MovieItemParser().jsonDecode(datas: data!)
-                        if parseError == "" {
-                            self.moviesItems = items
-                            
-                            completion("")
-                        }
-                        else {
-                            completion ( Errors.JSONError + error + " '" )
-                        }
-                    }
-                }
+                completion ( Errors.JSONError + parseError + " '" )
             }
         })
         

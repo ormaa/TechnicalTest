@@ -11,10 +11,50 @@ import Foundation
 
 class DetailsViewModel {
     
-    var searchedText = ""
-    var moviesItem: MovieItem? = nil
+
+    var moviesDetailsItem: MovieDetailsItem? = nil
     
 
+    
+    
+    
+    // get details of a movie from Webservices
+    //
+    func getMovieDetails(imdbID: String, completion:@escaping (_ error: String) -> Void) {
+    
+        // Get movie list using web service
+        WebServices().getMovieDetails(imdbID: imdbID, completion: { (error, data) in
+            guard error == "" else {
+                // web service returned an error
+                completion( Errors.LoadingError + error + " '" )
+                return
+            }
+            // json received, no error reported
+            guard data != nil  else {
+                return
+            }
+    
+            // check json object can be parsed
+            let jsonError = MovieItemParser().getJSONError(datas: data!)
+            guard jsonError == "" else {
+                completion( Errors.JSONError + jsonError + " '" )
+                return
+            }
+            // Parse json object, to get list of movies
+            let (item, parseError) = MovieItemParser().jsonDecodeMovieDetail(datas: data!)
+            if parseError == "" {
+                self.moviesDetailsItem = item
+                completion("")
+            }
+            else {
+                completion ( Errors.JSONError + parseError + " '" )
+            }
+        })
+
+    }
+    
+    
+    
     // get an image from webservice
     //
     func getPosterImage(imageURLString: String, completion:@escaping (_ error: String, _ data: Data?) -> Void) {

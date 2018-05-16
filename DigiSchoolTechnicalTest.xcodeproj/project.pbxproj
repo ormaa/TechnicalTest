@@ -21,6 +21,12 @@
 		097F33CD20AB096E005F8B4C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097F33CC20AB096E005F8B4C /* Label.swift */; };
 		097F33CF20AB0D3C005F8B4C /* DetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097F33CE20AB0D3C005F8B4C /* DetailsViewModelTests.swift */; };
 		097F33D220AB0E8C005F8B4C /* JSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097F33D120AB0E8C005F8B4C /* JSONParserTests.swift */; };
+		099F355420AC14A7007EF5AF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099F355320AC14A7007EF5AF /* Models.swift */; };
+		099F355620AC1CA1007EF5AF /* DetailsViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099F355520AC1CA1007EF5AF /* DetailsViewController+Keyboard.swift */; };
+		099F355820AC33F3007EF5AF /* StarsBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099F355720AC33F3007EF5AF /* StarsBar.xib */; };
+		099F355A20AC3402007EF5AF /* StarsBar_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099F355920AC3402007EF5AF /* StarsBar_View.swift */; };
+		099F355C20AC3C44007EF5AF /* json2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 099F355B20AC3C44007EF5AF /* json2.txt */; };
+		099F355D20AC3C4D007EF5AF /* json2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 099F355B20AC3C44007EF5AF /* json2.txt */; };
 		09E15B0F20AAC768006434FB /* Documentation.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 09E15B0E20AAC767006434FB /* Documentation.rtf */; };
 		09E15B1C20AAC83F006434FB /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E15B1420AAC83F006434FB /* View.swift */; };
 		09E15B1D20AAC83F006434FB /* Cell_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E15B1720AAC83F006434FB /* Cell_View.swift */; };
@@ -69,6 +75,11 @@
 		097F33CC20AB096E005F8B4C /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		097F33CE20AB0D3C005F8B4C /* DetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTests.swift; sourceTree = "<group>"; };
 		097F33D120AB0E8C005F8B4C /* JSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
+		099F355320AC14A7007EF5AF /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		099F355520AC1CA1007EF5AF /* DetailsViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		099F355720AC33F3007EF5AF /* StarsBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarsBar.xib; sourceTree = "<group>"; };
+		099F355920AC3402007EF5AF /* StarsBar_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsBar_View.swift; sourceTree = "<group>"; };
+		099F355B20AC3C44007EF5AF /* json2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = json2.txt; sourceTree = "<group>"; };
 		09E15B0E20AAC767006434FB /* Documentation.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Documentation.rtf; sourceTree = "<group>"; };
 		09E15B1420AAC83F006434FB /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		09E15B1720AAC83F006434FB /* Cell_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell_View.swift; sourceTree = "<group>"; };
@@ -134,9 +145,11 @@
 				09E15B2520AAC883006434FB /* Errors.swift */,
 				09E15B2720AAC883006434FB /* MainViewController.swift */,
 				09E15B2820AAC883006434FB /* DetailsViewController.swift */,
+				099F355520AC1CA1007EF5AF /* DetailsViewController+Keyboard.swift */,
 				097F33D320AB24CC005F8B4C /* Extensions */,
 				09E15B3C20AAC911006434FB /* ViewModels */,
 				09E15B3320AAC8F1006434FB /* NavigationBars */,
+				099F355220AC1498007EF5AF /* Model */,
 				09E15B3020AAC8DA006434FB /* JSON */,
 				09E15B2D20AAC89A006434FB /* Network */,
 				09E15B2220AAC84B006434FB /* Tools */,
@@ -181,10 +194,19 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		099F355220AC1498007EF5AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				099F355320AC14A7007EF5AF /* Models.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		09E15B1020AAC7B3006434FB /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
 				095B5BCA20AB5C1E0046D308 /* json.txt */,
+				099F355B20AC3C44007EF5AF /* json2.txt */,
 				09350A4820AAC38E009F3EF5 /* Info.plist */,
 				09350A4520AAC38E009F3EF5 /* LaunchScreen.storyboard */,
 				09350A4320AAC38E009F3EF5 /* Assets.xcassets */,
@@ -203,6 +225,8 @@
 				097F33C620AADCC3005F8B4C /* TextView.swift */,
 				09E15B1A20AAC83F006434FB /* SearchBar.swift */,
 				09E15B1B20AAC83F006434FB /* Button.swift */,
+				099F355720AC33F3007EF5AF /* StarsBar.xib */,
+				099F355920AC3402007EF5AF /* StarsBar_View.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -350,10 +374,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				099F355820AC33F3007EF5AF /* StarsBar.xib in Resources */,
 				095B5BCC20AB5D720046D308 /* json.txt in Resources */,
 				09350A4720AAC38E009F3EF5 /* LaunchScreen.storyboard in Resources */,
 				09E15B3A20AAC8F2006434FB /* DetailsBar.xib in Resources */,
 				09E15B2A20AAC883006434FB /* Main.storyboard in Resources */,
+				099F355C20AC3C44007EF5AF /* json2.txt in Resources */,
 				09E15B3820AAC8F2006434FB /* MainBar.xib in Resources */,
 				09E15B1E20AAC83F006434FB /* Cell.xib in Resources */,
 				09E15B0F20AAC768006434FB /* Documentation.rtf in Resources */,
@@ -365,6 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				099F355D20AC3C4D007EF5AF /* json2.txt in Resources */,
 				095B5BCD20AB5DEF0046D308 /* Assets.xcassets in Resources */,
 				095B5BCB20AB5C1F0046D308 /* json.txt in Resources */,
 			);
@@ -396,6 +423,9 @@
 				09E15B2C20AAC883006434FB /* DetailsViewController.swift in Sources */,
 				09E15B4020AAC911006434FB /* MainViewModel.swift in Sources */,
 				097F33CB20AB018F005F8B4C /* DetailsViewModel.swift in Sources */,
+				099F355420AC14A7007EF5AF /* Models.swift in Sources */,
+				099F355620AC1CA1007EF5AF /* DetailsViewController+Keyboard.swift in Sources */,
+				099F355A20AC3402007EF5AF /* StarsBar_View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

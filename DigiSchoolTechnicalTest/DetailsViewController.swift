@@ -9,14 +9,18 @@
 import Foundation
 import UIKit
 
-class DetailsViewController: UIViewController, UITextViewDelegate{
+class DetailsViewController: UIViewController{
 
     @IBOutlet var rootView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var poster: ImageView!
     @IBOutlet weak var releaseDate: UILabel!
-    @IBOutlet weak var criticsStars: UILabel!
-    @IBOutlet weak var AudienceStars: UILabel!
+    
+    @IBOutlet weak var critics_StarsBar: StarsBar_View!
+    @IBOutlet weak var audience_StarsBar: StarsBar_View!
+    
     
     @IBOutlet weak var myReviewStars: UILabel!
     @IBOutlet weak var myReviewText: TextView!
@@ -27,10 +31,11 @@ class DetailsViewController: UIViewController, UITextViewDelegate{
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var enterYourREviewPlaceHolder: UILabel!
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    var imdbID = ""
+    var detailsViewModel = DetailsViewModel()
     
     
-    var detailsViewModel: DetailsViewModel? = nil
+    
     
     override func viewDidLoad() {
 
@@ -47,119 +52,20 @@ class DetailsViewController: UIViewController, UITextViewDelegate{
 
         // override with custom navigation bar
         navigationController?.navigationBar.addSubview(DetailsBar_View.instanceFromNib(width: self.view.frame.width))
-    
-        
     }
     override func viewWillAppear(_ animated: Bool) {
-
-        displayDetails()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: .UIKeyboardWillHide, object: nil)
-
+        // observer allowing to move the scrollview, when user click in Review box.
+        addKeyboardObservers()
+        
+        requestAndDisplayDetails()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow , object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide , object: nil)
+        // remove the observer to avoid multiple observer on same event
+        removeKeyboardObserver()
     }
 
-    @objc func keyboardWillAppear(notification: NSNotification?) {
-        
-        guard let keyboardFrame = notification?.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
-            return
-        }
-        
-        // Compute y position of the textView, from top of screen
-        var completed = false
-        var yTotal = CGFloat( myReviewText.frame.size.height )
-        var v1: UIView? = myReviewText as UIView
-        repeat {
-            if v1 != nil  {
-                print(v1!.frame)
-                yTotal += v1!.frame.origin.y
-                v1 = v1!.superview
-            }
-            completed = v1 == nil
-        }
-        while !completed
-        
-        print("yTotal " + String(describing: yTotal))
-        print(view.contentScaleFactor)
-        
-        // Compute keyboard height
-        let keyboardHeight: CGFloat
-        if #available(iOS 11.0, *) {
-            keyboardHeight = keyboardFrame.cgRectValue.height - self.view.safeAreaInsets.bottom
-        } else {
-            keyboardHeight = keyboardFrame.cgRectValue.height
-        }
-        print("Keybord height : " + String(describing: keyboardHeight))
-        
-//        let posTextView = view!.convert(scrollView!.frame, to: nil).origin
-//        let posScrollView = view!.convert(view!.frame, to: nil).origin
-//        let posRootView = view!.convert(view!.superview!.frame.origin, to: nil)
-        
-        //tableViewBottomLayoutConstraint.constant = keyboardHeight
-        
-        let screenSize: CGRect = UIScreen.main.bounds
-        print(screenSize)
-        
-        let delta = screenSize.height - yTotal
-        scrollView.contentOffset = CGPoint(x: 0, y: keyboardHeight - delta ) //(keyboardHeight - posTextView.y - posScrollView.y ) + posRootView.y )
-        //rootView.frame.origin = CGPoint(x: 0, y: yTotal - keyboardHeight )
-    }
-    
-    @objc func keyboardWillDisappear(notification: NSNotification?) {
-        scrollView.contentOffset = CGPoint(x: 0, y: 0)
-        //rootView.frame.origin = CGPoint(x: 0, y: 0 )
-    }
-    
-    
-    func moveViewDelta(deltaY : CGFloat) {
-        
-//        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-//            let keyboardRectangle = keyboardFrame.cgRectValue
-//            let keyboardHeight = keyboardRectangle.height
-//        }
-        
-//        UIView.animate(withDuration: 0.3, animations: {
-//            self.view!.frame = self.view!.frame.offsetBy(dx: 0, dy: -deltaY)
-//        })
-    }
-
-
-    /// textView
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        print("begin editing")
-        moveViewDelta(deltaY: 70)
-    }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        print("end editing")
-        moveViewDelta(deltaY: -70)
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        if textView.text.count > 0 {
-            enterYourREviewPlaceHolder.isHidden = true
-        }
-        else {
-            enterYourREviewPlaceHolder.isHidden = false
-        }
-    }
-    
-    // character entered in textView
-    //
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            // hide the keyboard
-            textView.resignFirstResponder()
-            //moveViewDelta(deltaY: 0)
-            return false
-        }
-        return true
-    }
-    
     
     /// Activity indicator
     
@@ -174,53 +80,84 @@ class DetailsViewController: UIViewController, UITextViewDelegate{
         }
     }
     
-    // define the dependencies
-    //
-    func injectDependencies(viewModel: DetailsViewModel) {
-        self.detailsViewModel = viewModel
-    }
-    
-    
-    // display all details controls
-    //
-    func displayDetails() {
-        if detailsViewModel != nil &&
-            detailsViewModel!.moviesItem != nil {
-                
-            if detailsViewModel!.moviesItem!.poster != nil {
-                // download the image
-                detailsViewModel?.getPosterImage(imageURLString: detailsViewModel!.moviesItem!.poster!, completion: { (error, data) in
-                    guard error == "" else {
-                        // error : web or parsing error
-                        Tools().simpleAlert(message: Errors.ImageError + error)
-                        return
-                    }
-                    if data != nil {
-                        let img = UIImage(data: data!)
-                        if img != nil {
-                            self.hideActivity()
-                            DispatchQueue.main.async {
-                                self.poster.image = img
-                            }
-                        }
-                    }
-                })
-            }
-            // Set title
-            movieTitle.text = detailsViewModel!.moviesItem!.title
-            
-        }
-    }
     
     // handle swipe gesture
     //
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
             print("Swipe Right")
-//            self.performSegue(withIdentifier: "popDetailsSegue", sender: nil)
+            //            self.performSegue(withIdentifier: "popDetailsSegue", sender: nil)
             self.navigationController?.popViewController(animated: true)
-
         }
+    }
+    
+    
+
+    // display all details controls
+    //
+    func requestAndDisplayDetails() {
+        
+        detailsViewModel.getMovieDetails(imdbID: self.imdbID, completion: {(error) in
+            guard error == "" else {
+                // error : web or parsing error
+                Tools().simpleAlert(message: Errors.ImageError + error)
+                return
+            }
+            let item = self.detailsViewModel.moviesDetailsItem
+            if item != nil {
+                
+                DispatchQueue.main.async {
+                    // fill controls with details of the movie
+                    self.loadImage(item: item!)
+                    
+                    self.movieTitle.text = item!.title
+                    self.releaseDate.text = item!.releaseDate
+                    self.sysnopsisText.text = item!.synopsis
+                    self.castingText.text = item!.casting
+                    self.similarMoviesText.text = item!.similarMovies
+                    
+                    // compute audience percent
+                    let audiencePercent = Double(self.detailsViewModel.moviesDetailsItem!.imdbRating)
+                    if audiencePercent != nil {
+                        Tools.log("Audience : ", audiencePercent ?? "?")
+                        self.audience_StarsBar.setStarsLevel(percent: CGFloat(audiencePercent! * 10.0))
+                        self.critics_StarsBar.setStarsLevel(percent: CGFloat( 90.0))
+                    }
+                    
+                    // Compute critics percent
+                    
+                }
+
+            }
+            
+        })
 
     }
+    
+    // Load the poster image of the movie, and apply it to UIImageView
+    //
+    func loadImage(item: MovieDetailsItem) {
+        if item.poster != nil && item.poster != "" {
+            // download the image
+            self.detailsViewModel.getPosterImage(imageURLString: detailsViewModel.moviesDetailsItem!.poster!, completion: { (error, data) in
+                guard error == "" else {
+                    // error : web or parsing error
+                    Tools().simpleAlert(message: Errors.ImageError + error)
+                    return
+                }
+                if data != nil {
+                    let img = UIImage(data: data!)
+                    if img != nil {
+                        self.hideActivity()
+                        DispatchQueue.main.async {
+                            self.poster.image = img
+                        }
+                    }
+                }
+            })
+        }
+    }
+    
+    
+
 }

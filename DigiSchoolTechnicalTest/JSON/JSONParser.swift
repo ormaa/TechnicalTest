@@ -9,41 +9,7 @@
 import Foundation
 
 
-class JSONError: Codable {
-    var Response = ""
-    var Error = ""
-}
 
-
-class MovieArray: Codable {
-    var search = [MovieItem]()
-    var total = ""
-    var response = ""
-    
-    // define how to map value between class and json text
-    private enum CodingKeys: String, CodingKey {
-        case search = "Search"
-        case total = "totalResults"
-        case response = "Response"
-    }
-}
-
-class MovieItem: Codable {
-    
-    var title: String = ""
-    var year: String? = ""
-    var poster: String? = ""
-    var movieType: String? = ""
-    
-    // define how to map value between class and json text
-    private enum CodingKeys: String, CodingKey {
-        case title = "Title"
-        case year = "Year"
-        case poster = "Poster"
-        case movieType = "MovieType"
-    }
-    
-}
 
 class MovieItemParser {
 
@@ -63,8 +29,9 @@ class MovieItemParser {
     }
     
     
-    // Decode json data into a MovieItem class
-    func jsonDecode(datas: Data?) -> ([MovieItem], String) {
+    // Decode json data to get MovieItem list
+    //
+    func jsonDecodeMovieList(datas: Data?) -> ([MovieItem], String) {
 
 //        // convert data to string, print the result
 //        var str: String?
@@ -85,5 +52,23 @@ class MovieItemParser {
             return ([], error)
         }
     }
+    
+    
+    // Decode json data into a MovieDetailItem class
+    //
+    func jsonDecodeMovieDetail(datas: Data?) -> (MovieDetailsItem?, String) {
+
+        let decoder = JSONDecoder()
+        do {
+            let item = try decoder.decode(MovieDetailsItem.self, from: datas!)
+            return (item, "")
+        }
+        catch let err {
+            let error = err.localizedDescription
+            Tools.log("Json parsing error : " + error)
+            return (nil, error)
+        }
+    }
+    
     
 }
