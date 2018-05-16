@@ -121,11 +121,41 @@ class DetailsViewController: UIViewController{
                     if audiencePercent != nil {
                         Tools.log("Audience : ", audiencePercent ?? "?")
                         self.audience_StarsBar.setStarsLevel(percent: CGFloat(audiencePercent! * 10.0))
-                        self.critics_StarsBar.setStarsLevel(percent: CGFloat( 90.0))
                     }
                     
                     // Compute critics percent
-                    
+                    // there can be several ratings for a movie, coming from several critics
+                    // I will calculate the medium value
+                    var total = 0.0
+                    var nbCritics = 0.0
+                    for rating in item!.ratings {
+                        let valueStr = rating.Value
+                        if valueStr.contains("/") {
+                            let splitted = valueStr.components(separatedBy: "/")
+                            if splitted[1] == "10" {
+                                let value = Double(splitted[0])
+                                if value != nil {
+                                    total += value! * 10
+                                }
+                            }
+                            if splitted[1] == "100" {
+                                let value = Double(splitted[0])
+                                if value != nil {
+                                    total += value!
+                                }
+                            }
+                        }
+                        if valueStr.contains("%") {
+                            let value = Double(valueStr.replacingOccurrences(of: "%", with: ""))
+                            if value != nil {
+                                total += value!
+                            }
+                        }
+                        nbCritics += 1.0
+                    }
+                    total = total / nbCritics
+                    Tools.log("Critics medium value : ", total)
+                    self.critics_StarsBar.setStarsLevel(percent: CGFloat( total ))
                 }
 
             }

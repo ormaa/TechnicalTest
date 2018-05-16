@@ -56,7 +56,7 @@ class MovieDetailsItem: Codable {
     var synopsis: String = ""
     var casting: String = ""
     var similarMovies: String = ""
-    var Ratings: [Ratings] = []
+    var ratings: [Ratings] = []
     
     // define how to map value between class and json text
     private enum CodingKeys: String, CodingKey {
@@ -68,12 +68,18 @@ class MovieDetailsItem: Codable {
         case synopsis = "Plot"
         case casting = "Actors"
         case similarMovies = "Genre"
+        case ratings = "Ratings"
     }
 }
 
 class Ratings: Codable {
     var Source: String = ""
     var Value: String = ""
+    // define how to map value between class and json text
+    private enum CodingKeys: String, CodingKey {
+        case Source = "Source"
+        case Value = "Value"
+    }
 }
 
 
