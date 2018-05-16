@@ -178,15 +178,77 @@
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭐️☆☆☆☆☆" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aa6-g8-oXw">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afI-97-GBH">
                                                                 <rect key="frame" x="0.0" y="35" width="300" height="25"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BE0-dI-3u6">
+                                                                        <rect key="frame" x="70" y="0.0" width="160" height="24"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAa-B7-rUZ">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="24" id="AWC-M4-d7d"/>
+                                                                                    <constraint firstAttribute="height" constant="24" id="mzV-9v-CJO"/>
+                                                                                </constraints>
+                                                                                <state key="normal" image="star_black"/>
+                                                                                <connections>
+                                                                                    <action selector="myReviewStarClick:" destination="1yM-vD-x2n" eventType="touchUpInside" id="6LS-ZG-EZA"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNC-FP-gAf">
+                                                                                <rect key="frame" x="34" y="0.0" width="24" height="24"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="24" id="K0J-tr-yI3"/>
+                                                                                    <constraint firstAttribute="width" constant="24" id="MM2-b7-UQt"/>
+                                                                                </constraints>
+                                                                                <state key="normal" image="star_black"/>
+                                                                                <connections>
+                                                                                    <action selector="myReviewStarClick:" destination="1yM-vD-x2n" eventType="touchUpInside" id="d5f-6m-F0Q"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQg-3J-iKf">
+                                                                                <rect key="frame" x="68" y="0.0" width="24" height="24"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="24" id="6PO-b5-Al6"/>
+                                                                                    <constraint firstAttribute="height" constant="24" id="Lkw-9a-1di"/>
+                                                                                </constraints>
+                                                                                <state key="normal" image="star_black"/>
+                                                                                <connections>
+                                                                                    <action selector="myReviewStarClick:" destination="1yM-vD-x2n" eventType="touchUpInside" id="eBD-EY-XsS"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfz-Vy-ruE">
+                                                                                <rect key="frame" x="102" y="0.0" width="24" height="24"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="24" id="1ZQ-yM-OXg"/>
+                                                                                    <constraint firstAttribute="width" constant="24" id="xc1-G4-XPC"/>
+                                                                                </constraints>
+                                                                                <state key="normal" image="star_black"/>
+                                                                                <connections>
+                                                                                    <action selector="myReviewStarClick:" destination="1yM-vD-x2n" eventType="touchUpInside" id="dYv-Zi-YwH"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPc-0z-zC6">
+                                                                                <rect key="frame" x="136" y="0.0" width="24" height="24"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="24" id="hAj-sm-lXB"/>
+                                                                                    <constraint firstAttribute="height" constant="24" id="s3b-cb-kpt"/>
+                                                                                </constraints>
+                                                                                <state key="normal" image="star_black"/>
+                                                                                <connections>
+                                                                                    <action selector="myReviewStarClick:" destination="1yM-vD-x2n" eventType="touchUpInside" id="taG-AB-Ra3"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="25" id="1zQ-UZ-iWv"/>
+                                                                    <constraint firstAttribute="height" constant="25" id="Huy-ic-ygG"/>
+                                                                    <constraint firstItem="BE0-dI-3u6" firstAttribute="top" secondItem="afI-97-GBH" secondAttribute="top" id="S8t-ub-tm7"/>
+                                                                    <constraint firstItem="BE0-dI-3u6" firstAttribute="centerX" secondItem="afI-97-GBH" secondAttribute="centerX" id="TVh-cE-mAm"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BP3-IE-I2s">
                                                                 <rect key="frame" x="0.0" y="70" width="300" height="70"/>
                                                                 <subviews>
@@ -395,8 +457,12 @@
                         <outlet property="critics_StarsBar" destination="6Qe-kz-JeD" id="8KI-5B-VMa"/>
                         <outlet property="enterYourREviewPlaceHolder" destination="xf8-Pk-pyl" id="xVa-xa-wi5"/>
                         <outlet property="movieTitle" destination="RGs-7R-SGl" id="5Kg-yH-m2v"/>
-                        <outlet property="myReviewStars" destination="aa6-g8-oXw" id="a44-a7-05L"/>
                         <outlet property="myReviewText" destination="ie1-gd-eoT" id="rQi-db-uWG"/>
+                        <outlet property="myStar0" destination="fAa-B7-rUZ" id="06P-28-A6K"/>
+                        <outlet property="myStar1" destination="jNC-FP-gAf" id="AgO-dI-Yj6"/>
+                        <outlet property="myStar2" destination="SQg-3J-iKf" id="SUm-hZ-Bc4"/>
+                        <outlet property="myStar3" destination="bfz-Vy-ruE" id="qef-OH-RwC"/>
+                        <outlet property="myStar4" destination="yPc-0z-zC6" id="nzu-8a-uO5"/>
                         <outlet property="poster" destination="hlo-nR-bOU" id="EuI-aP-Vlc"/>
                         <outlet property="releaseDate" destination="43x-ZG-ixG" id="cZQ-7z-yix"/>
                         <outlet property="rootView" destination="rcI-PM-gDh" id="3pA-nY-UH0"/>
@@ -410,4 +476,7 @@
             <point key="canvasLocation" x="-253.62318840579712" y="-533.1521739130435"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="star_black" width="64" height="64"/>
+    </resources>
 </document>

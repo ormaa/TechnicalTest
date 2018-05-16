@@ -31,6 +31,14 @@ class DetailsViewController: UIViewController{
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var enterYourREviewPlaceHolder: UILabel!
     
+    
+    @IBOutlet weak var myStar0: UIButton!
+    @IBOutlet weak var myStar1: UIButton!
+    @IBOutlet weak var myStar2: UIButton!
+    @IBOutlet weak var myStar3: UIButton!
+    @IBOutlet weak var myStar4: UIButton!
+
+    
     var imdbID = ""
     var detailsViewModel = DetailsViewModel()
     
@@ -89,6 +97,31 @@ class DetailsViewController: UIViewController{
             //            self.performSegue(withIdentifier: "popDetailsSegue", sender: nil)
             self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    
+    
+    @IBAction func myReviewStarClick(_ sender: UIButton) {
+        myStar0.setImage(UIImage(named: "star_black" ), for: .normal)
+        myStar1.setImage(UIImage(named: "star_black" ), for: .normal)
+        myStar2.setImage(UIImage(named: "star_black" ), for: .normal)
+        myStar3.setImage(UIImage(named: "star_black" ), for: .normal)
+        myStar4.setImage(UIImage(named: "star_black" ), for: .normal)
+        
+        for i in 0...sender.tag {
+            let btn = getStart(tagNum: i)
+            if btn != nil {
+                btn!.setImage(UIImage(named: "star_yellow"), for: .normal)
+            }
+        }
+    }
+    func getStart(tagNum: Int) -> UIButton? {
+        if tagNum == 0 { return myStar0 }
+        if tagNum == 1 { return myStar1 }
+        if tagNum == 2 { return myStar2 }
+        if tagNum == 3 { return myStar3 }
+        if tagNum == 4 { return myStar4 }
+        return nil
     }
     
     

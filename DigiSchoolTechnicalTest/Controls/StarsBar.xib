@@ -24,35 +24,35 @@
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HpW-Js-bXV" userLabel="Stars Black">
                     <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_black" translatesAutoresizingMaskIntoConstraints="NO" id="OYN-w0-qk7">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_black" translatesAutoresizingMaskIntoConstraints="NO" id="OYN-w0-qk7">
                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="GEP-M8-kkT"/>
                                 <constraint firstAttribute="height" constant="20" id="jWp-aT-1g5"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_black" translatesAutoresizingMaskIntoConstraints="NO" id="Kzd-pp-8Y1">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_black" translatesAutoresizingMaskIntoConstraints="NO" id="Kzd-pp-8Y1">
                             <rect key="frame" x="20" y="0.0" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="LtK-wt-OJl"/>
                                 <constraint firstAttribute="height" constant="20" id="LtW-2W-g05"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_black" translatesAutoresizingMaskIntoConstraints="NO" id="T3s-wx-lXw">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_black" translatesAutoresizingMaskIntoConstraints="NO" id="T3s-wx-lXw">
                             <rect key="frame" x="40" y="0.0" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="ofG-Xd-QnZ"/>
                                 <constraint firstAttribute="width" constant="20" id="sYY-sL-2dn"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_black" translatesAutoresizingMaskIntoConstraints="NO" id="WGX-hL-32w">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_black" translatesAutoresizingMaskIntoConstraints="NO" id="WGX-hL-32w">
                             <rect key="frame" x="60" y="0.0" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="Gtg-g8-F8a"/>
                                 <constraint firstAttribute="height" constant="20" id="cVb-2I-9Xc"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_black" translatesAutoresizingMaskIntoConstraints="NO" id="4pI-pH-oW1">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_black" translatesAutoresizingMaskIntoConstraints="NO" id="4pI-pH-oW1">
                             <rect key="frame" x="80" y="0.0" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="XcL-41-vwE"/>
@@ -123,7 +123,7 @@
         </view>
     </objects>
     <resources>
+        <image name="star_black" width="64" height="64"/>
         <image name="star_yellow" width="20" height="20"/>
-        <image name="start_black" width="64" height="64"/>
     </resources>
 </document>

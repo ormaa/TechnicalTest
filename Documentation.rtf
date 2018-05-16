@@ -17,9 +17,12 @@ As requested by the Technical test guideline, this version of the project is wri
 without any external framework, in order to deliver something purely "Apple" style.\
 I used Swift 4.1 for IOS 11.0\
 \
-Some improvement could be done by using Alamofire, to do web service call, rxSwift to bind the data to tableView, searchBar, and SwiftyJson to have elegant solution to parse JSON datas.\
+Some improvement could be done with more time :\
+using Alamofire, to do web service call, rxSwift to bind the data to tableView, searchBar, and SwiftyJson to have elegant solution to parse JSON datas.\
 Unit test could be done also on UI.\
 Refresh button could be removed, and replaced by a pull to refresh gesture : more elegant ( added in this project :o)\
+\
+Critics, Audience could be computed in a separate class, and unit tested.\
 \
 \
 
@@ -130,6 +133,12 @@ TableView row click call a delegate because it is not the responsibility of Tabl
 \b Keyboard appearing when user click on textView \
 
 \b0 when the keyboard appear, the view need to be moved up.\
+\
+
+\b Critics, Audience\
+
+\b0 Without any real informaiton, I took the Audience calculation using imdbRating\
+I computed the Critics using the Ratins array, when it exist.\
 \
 \
 \
